@@ -25,6 +25,7 @@
     transform: translate(-50%, -50%);
 }
 
+
 @media only screen and (max-width: 990px){
     .sliderParentRow{
         position: relative;

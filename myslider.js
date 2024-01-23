@@ -81,8 +81,6 @@ paginationFunc(counter);
 let scrolling = false;
 
 scrollFunc = (event) => {
-    console.log(event.deltaY)
-
     // Check if scrolling action is in progress
     if(scrolling) {
         return
@@ -102,12 +100,10 @@ scrollFunc = (event) => {
         counter = slides.length - 1;
     }
     sliderContext.innerHTML = slides[counter];
-
     paginationFunc(counter)
-    console.log('counter ' + counter)
 
     // Reset the scrolling flag after the delay
     setTimeout(() => {
         scrolling = false;
-    }, 1000); // 1000 milliseconds (1 second) delay
+    }, 1500); // 1000 milliseconds (1 second) delay
 }
