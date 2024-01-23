@@ -65,19 +65,31 @@ const paginationFunc = (counter) => {
 paginationFunc(counter);
 
 // Counter increment function
-function incrementCounter() {
-    counter++;
-    if (counter >= slides.length) {
-        counter = 0   
-    }
-    sliderContext.innerHTML = slides[counter];
-    paginationFunc(counter)
-  }
+// function incrementCounter() {
+//     counter++;
+//     if (counter >= slides.length) {
+//         counter = 0   
+//     }
+//     sliderContext.innerHTML = slides[counter];
+//     paginationFunc(counter)
+//   }
   
-  setInterval(incrementCounter, 7000);
+//   setInterval(incrementCounter, 7000);
 
 // scrolling Function
+
+let scrolling = false;
+
 scrollFunc = (event) => {
+    console.log(event.deltaY)
+
+    // Check if scrolling action is in progress
+    if(scrolling) {
+        return
+    }
+    // Set the scrolling flag to true
+     scrolling = true;
+
     if(event.deltaY > 0){ 
         counter++; 
     } else if (event.deltaY < 0) { 
@@ -93,4 +105,9 @@ scrollFunc = (event) => {
 
     paginationFunc(counter)
     console.log('counter ' + counter)
+
+    // Reset the scrolling flag after the delay
+    setTimeout(() => {
+        scrolling = false;
+    }, 1000); // 1000 milliseconds (1 second) delay
 }
